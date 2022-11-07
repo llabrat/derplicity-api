@@ -1,0 +1,85 @@
+openapi: 3.0.3
+info:
+  title: Blog
+  description: Blog
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080'
+paths:
+  /v1/articles:
+    get:
+      summary: Get all articles
+      tags:
+        - Articles
+      operationId: getArticles
+      responses:
+        200:
+          description: List of articles
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Articles"
+    post:
+      summary: create an article
+      tags:
+        - Articles
+      operationId: createArticle
+      responses:
+        201:
+          description: A new article
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Article"
+  /v1/articles/{id}:
+    get:
+      summary: get a specific article
+      tags:
+        - Articles
+      operationId: getArticle
+      responses:
+        200:
+          description: A specific article
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Article"
+    put:
+      summary: update an article
+      tags:
+        - Articles
+      operationId: updateArticle
+      requestBody:
+        $ref: "#/components/schemas/Article"
+      responses:
+        200:
+          description: A specific article
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Article"
+    delete:
+      summary: delete an article
+      tags:
+        - Articles
+      operationId: deleteArticle
+      responses:
+        204:
+          description: No response
+
+components:
+  schemas:
+    Article:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        content:
+          type: string
+    Articles:
+      type: array
+      items:
+        $ref: "#/components/schemas/Article"
