@@ -1,0 +1,31 @@
+article:
+  kafka:
+      topics:
+        user-topic:
+          name: user.fct.blog-user-updates.1
+          partitions: 1
+          replicas: 1
+user:
+  kafka:
+      topics:
+        user-topic:
+          name: user.fct.blog-user-updates.1
+          partitions: 1
+          replicas: 1
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/blog
+    username: blog
+    password: password
+  kafka:
+    bootstrap-servers:
+      - localhost:9092
+    consumer:
+      group-id: test
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer

@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1669271654337-1
+      author: rflet (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createSequence:
+            incrementBy: 1
+            sequenceName: hibernate_sequence
+            startValue: 1
+  - changeSet:
+      id: 1669271654337-2
+      author: rflet (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_article
+                  name: id
+                  type: UUID
+            tableName: article
+

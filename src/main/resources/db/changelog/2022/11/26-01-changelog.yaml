@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1669488703269-1
+      author: rflet (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: content
+                  type: CLOB
+            tableName: article
+

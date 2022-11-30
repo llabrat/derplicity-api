@@ -1,0 +1,34 @@
+{
+  "properties": [
+    {
+      "name": "user.kafka.topics.user-topic.name",
+      "type": "java.lang.String",
+      "description": "Name of the kafka user topic."
+    },
+    {
+      "name": "user.kafka.topics.user-topic.replicas",
+      "type": "java.lang.Integer",
+      "description": "Number of replicas for the kafka user topic."
+    },
+    {
+      "name": "user.kafka.topics.user-topic.partitions",
+      "type": "java.lang.Integer",
+      "description": "Number of partitions for the kafka user topic."
+    },
+    {
+      "name": "article.kafka.topics.user-topic.name",
+      "type": "java.lang.String",
+      "description": "Name of the kafka user topic."
+    },
+    {
+      "name": "article.kafka.topics.user-topic.replicas",
+      "type": "java.lang.Integer",
+      "description": "Number of replicas for the kafka user topic."
+    },
+    {
+      "name": "article.kafka.topics.user-topic.partitions",
+      "type": "java.lang.Integer",
+      "description": "Number of partitions for the kafka user topic."
+    }
+  ]
+}
