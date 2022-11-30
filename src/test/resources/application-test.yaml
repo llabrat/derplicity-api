@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:blog-db
+
+article:
+  kafka:
+    topics:
+      user-topic:
+        name: article-test-topic

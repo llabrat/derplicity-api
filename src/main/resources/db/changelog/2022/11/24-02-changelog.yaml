@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1669273065462-1
+      author: rflet (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_comment
+                  name: id
+                  type: UUID
+            tableName: comment
+
