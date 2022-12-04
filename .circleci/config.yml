@@ -11,8 +11,8 @@ jobs:
           command: | 
             mvn test
             curl https://deepsource.io/cli | sh
-            ./bin/deepsource report --analyzer test-coverage --key javascript --value-file target/site/jacoco/jacocoTestReport.xml
-            bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r target/site/jacoco/jacocoTestReport.xml
+            ./bin/deepsource report --analyzer test-coverage --key javascript --value-file target/site/jacoco/jacoco.xml
+            bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r target/site/jacoco/jacoco.xml
 
 workflows:
   test-workflow:
