@@ -12,15 +12,15 @@ Back end services for the massively over-engineered Derplicity blogging platform
 
 ### Pre-requisites
 
-- java 17
-- maven
-- docker
+  - java 17
+  - maven
+  - docker
 
 ### Starting
 
-- mvn docker:start
-- mvn spring-boot:run
+  - mvn docker:start
+  - mvn spring-boot:run
 
 ### Cleanup
 
-- mvn docker:stop
+  - mvn docker:stop

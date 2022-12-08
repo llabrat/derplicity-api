@@ -31,18 +31,18 @@ public abstract class ContextBase {
 
     public WebTestClient webTestClient;
 
-    @Autowired
-    void setMockMvc(MockMvc mockMvc) {
-        this.webTestClient = MockMvcWebTestClient.bindTo(mockMvc)
-                .build();
-    }
-
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     public EmbeddedKafkaBroker embeddedKafkaBroker;
 
     @Value("${user.kafka.topics.user-topic.name}")
     public String userTopicName;
+
+    @Autowired
+    void setMockMvc(MockMvc mockMvc) {
+        this.webTestClient = MockMvcWebTestClient.bindTo(mockMvc)
+                .build();
+    }
 
     protected static JwtAuthenticationToken jwtAuthenticationToken() {
         return new JwtAuthenticationToken(jwt().build(), AuthorityUtils.createAuthorityList());
