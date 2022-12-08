@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.test.utils.KafkaTestUtils;
+import org.springframework.security.test.context.TestSecurityContextHolder;
 
 import java.time.Duration;
 import java.util.HashMap;
@@ -28,13 +29,15 @@ class UserControllerTests extends ContextBase {
         consumer = new DefaultKafkaConsumerFactory<>(configs, new StringDeserializer(), new StringDeserializer()).createConsumer();
         consumer.subscribe(singleton(userTopicName));
         consumer.poll(Duration.ZERO);
-        ConsumerRecord<String, String> received = KafkaTestUtils.getSingleRecord(consumer, userTopicName, 5000);
+        ConsumerRecord<String, String> received = KafkaTestUtils.getSingleRecord(consumer, userTopicName);
         consumer.close();
         return received;
     }
 
     @Test
     void whenGetUsers_then200AndResponse() {
+
+        TestSecurityContextHolder.setAuthentication(jwtAuthenticationToken());
 
         webTestClient
                 .get()
@@ -50,6 +53,8 @@ class UserControllerTests extends ContextBase {
     void whenPostUser_then201AndResponseAndMessageSent() {
 
         var user = UserDto.builder().name("Test User").build();
+
+        TestSecurityContextHolder.setAuthentication(jwtAuthenticationToken());
 
         webTestClient
                 .post()
