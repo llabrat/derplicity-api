@@ -29,3 +29,9 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-lvordbeezf3wqlh2.us.auth0.com/
+          jwk-set-uri: https://dev-lvordbeezf3wqlh2.us.auth0.com/.well-known/jwks.json

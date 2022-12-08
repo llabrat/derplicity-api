@@ -11,6 +11,6 @@ public class ArticleControllerAdvice {
 
     @ExceptionHandler(ArticleException.class)
     ResponseEntity<ErrorResponse> handleArticleException(ArticleException ex) {
-        return ResponseEntity.status(ex.getStatus()).body(ErrorResponse.builder().code(String.valueOf(ex.getStatus().value())).message(ex.getReason()).build());
+        return ResponseEntity.status(ex.getStatusCode()).body(ErrorResponse.builder().code(String.valueOf(ex.getStatusCode().value())).message(ex.getReason()).build());
     }
 }

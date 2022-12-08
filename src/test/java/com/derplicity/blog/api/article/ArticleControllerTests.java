@@ -11,6 +11,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.test.context.TestSecurityContextHolder;
 import org.springframework.test.web.reactive.server.EntityExchangeResult;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
@@ -36,6 +37,8 @@ class ArticleControllerTests extends ContextBase {
     @Test
     void whenGetArticles_then200AndResponse() {
 
+        TestSecurityContextHolder.setAuthentication(jwtAuthenticationToken());
+
         webTestClient
                 .get()
                 .uri("/v1/articles")
@@ -48,6 +51,9 @@ class ArticleControllerTests extends ContextBase {
 
     @Test
     void whenPostArticle_Then201AndResponse() {
+
+        TestSecurityContextHolder.setAuthentication(jwtAuthenticationToken());
+
         var request = ArticleDto
                 .builder()
                 .content("This is just a test")
@@ -70,6 +76,9 @@ class ArticleControllerTests extends ContextBase {
 
     @Test
     void whenPutArticle_idFound_Then200AndResponse() {
+
+        TestSecurityContextHolder.setAuthentication(jwtAuthenticationToken());
+
         var request = ArticleDto
                 .builder()
                 .content("This is just a test")
@@ -107,6 +116,9 @@ class ArticleControllerTests extends ContextBase {
 
     @Test
     void whenPutArticle_idNotFound_Then404AndResponse() {
+
+        TestSecurityContextHolder.setAuthentication(jwtAuthenticationToken());
+
         var request = ArticleDto
                 .builder()
                 .content("This is just a test")
