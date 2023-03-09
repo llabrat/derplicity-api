@@ -3,6 +3,7 @@ package com.derplicity.blog.api.user;
 import com.derplicity.blog.api.shared.ContextBase;
 import com.derplicity.blog.api.user.domain.User;
 import com.derplicity.blog.api.user.domain.dto.UserDto;
+import com.derplicity.test.WithMockJwt;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -35,9 +36,8 @@ class UserControllerTests extends ContextBase {
     }
 
     @Test
+    @WithMockJwt
     void whenGetUsers_then200AndResponse() {
-
-        TestSecurityContextHolder.setAuthentication(jwtAuthenticationToken());
 
         webTestClient
                 .get()
