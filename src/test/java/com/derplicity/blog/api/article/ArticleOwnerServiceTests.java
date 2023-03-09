@@ -8,7 +8,6 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
@@ -25,9 +24,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ActiveProfiles({"test"})
 class ArticleOwnerServiceTests extends ContextBase {
-
-    @Value("${article.kafka.topics.user-topic.name}")
-    public String userTopicName;
 
     private KafkaTemplate<String, String> producer;
 

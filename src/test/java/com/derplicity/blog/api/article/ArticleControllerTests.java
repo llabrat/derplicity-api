@@ -13,15 +13,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.test.context.TestSecurityContextHolder;
 import org.springframework.test.web.reactive.server.EntityExchangeResult;
-import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.util.UUID;
 
 
 class ArticleControllerTests extends ContextBase {
-
-    @Autowired
-    WebTestClient webTestClient;
 
     @Autowired
     ArticleMapper mapper;
